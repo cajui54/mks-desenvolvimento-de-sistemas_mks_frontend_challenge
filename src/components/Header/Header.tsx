@@ -7,7 +7,7 @@ const Header = () => {
       <Styles.LogoHeader>
         <h1>
           <span>MKS</span>
-          <span>Sitemas</span>
+          <span>Sistemas</span>
         </h1>
       </Styles.LogoHeader>
 

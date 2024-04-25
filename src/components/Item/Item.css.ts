@@ -51,7 +51,7 @@ export const MainItem = styled.div`
 export const InfoContainer = styled.div`
   display: flex;
   h2 {
-    width: 124px;
+    min-width: 124px;
     height: 38px;
     margin: 0.5rem;
     font-weight: 400;
@@ -60,19 +60,18 @@ export const InfoContainer = styled.div`
     padding: 1px;
   }
   div {
+    margin-top: 1rem;
+  }
+  div span {
     background-color: #373737;
     min-width: 64px;
     height: 26px;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    margin-right: 1rem;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 15px;
     font-weight: 700;
     line-height: 15px;
-    padding: 1px;
     color: #fff;
+    padding: 2px;
   }
 `;
