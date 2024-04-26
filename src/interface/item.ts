@@ -8,3 +8,6 @@ export interface IItem {
   brand: string;
   updatedAt: string;
 }
+export interface ItemResponse {
+  products: IItem[];
+}

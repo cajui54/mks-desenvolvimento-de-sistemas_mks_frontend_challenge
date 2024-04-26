@@ -1,23 +1,25 @@
 import { useState, useEffect } from "react";
-import { IItem } from "../interface/item";
-import { LogoHeader } from "../components/Header/Header.css";
+import { IItem, ItemResponse } from "../interface/item";
+import { axiosInstance, endPoint } from "../helper/axios-instanse";
+import { useQuery } from "@tanstack/react-query";
+import { AxiosPromise } from "axios";
 
 const useFetch = () => {
-  const [products, setProducts] = useState<IItem[] | null>(null);
-  const url =
-    "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC";
+  const requestDatas = async (): AxiosPromise<ItemResponse> => {
+    const response = await axiosInstance.get<ItemResponse>(endPoint);
 
-  useEffect(() => {
-    const requestDatas = async () => {
-      const response = await fetch(url);
+    return response;
+  };
 
-      const datasJSON = await response.json();
+  const queryProducts = useQuery({
+    queryFn: requestDatas,
+    queryKey: ["products-data"],
+  });
 
-      setProducts(datasJSON.products);
-    };
-    requestDatas();
-  }, []);
-  return { products };
+  return {
+    ...queryProducts,
+    data: queryProducts.data?.data.products,
+  };
 };
 
 export default useFetch;
