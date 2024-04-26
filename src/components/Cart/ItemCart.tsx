@@ -42,6 +42,7 @@ const ItemCart = () => {
   };
   const handleRemoveItem = (id: number) => {
     dispatch(removeItemCart(id));
+    dispatch(getTotalBuy());
   };
   useEffect(() => {
     dispatch(getTotalBuy());

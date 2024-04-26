@@ -7,6 +7,7 @@ const initialState: Cart = {
   itemsInCart: [],
   amountItems: [],
   totalBuy: 0,
+  opacityMenu: 0,
 };
 const sliceCart = createSlice({
   name: "cart",
@@ -89,6 +90,17 @@ const sliceCart = createSlice({
         );
         return state;
       }
+      state.totalBuy = 0;
+      return state;
+    },
+    openMenu(state, { payload }: PayloadAction<"open" | "close">) {
+      if (payload === "open") {
+        state.opacityMenu = 1;
+        return state;
+      } else {
+        state.opacityMenu = 0;
+        return state;
+      }
     },
   },
 });
@@ -99,6 +111,7 @@ export const {
   decrementItem,
   removeItemCart,
   getTotalBuy,
+  openMenu,
 } = sliceCart.actions;
 
 export default sliceCart.reducer;

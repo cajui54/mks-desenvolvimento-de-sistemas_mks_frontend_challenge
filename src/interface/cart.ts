@@ -9,4 +9,5 @@ export interface Cart {
   itemsInCart: IItem[];
   amountItems: AmountItems[];
   totalBuy: number;
+  opacityMenu: number;
 }
