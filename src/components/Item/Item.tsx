@@ -3,13 +3,15 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { RiHandbagLine } from "react-icons/ri";
 import * as Styles from "./Item.css";
 import { IItem } from "../../interface/item";
+import { useDispatch } from "react-redux";
+import { addItemCart } from "../../redux/slice/sliceCart";
 import useFetch from "../../hooks/useFetch";
 
 const Item = (props: IItem) => {
   const { isLoading } = useFetch();
-
+  const dispatch = useDispatch();
   const handleAddItemCart = (item: IItem) => {
-    console.log(item);
+    dispatch(addItemCart(item));
   };
 
   return (
