@@ -4,7 +4,11 @@ import { RiHandbagLine } from "react-icons/ri";
 import * as Styles from "./Item.css";
 import { IItem } from "../../interface/item";
 import { useDispatch } from "react-redux";
-import { addItemCart } from "../../redux/slice/sliceCart";
+import {
+  addItemCart,
+  getAmountItems,
+  getTotalBuy,
+} from "../../redux/slice/sliceCart";
 import useFetch from "../../hooks/useFetch";
 
 const Item = (props: IItem) => {
@@ -12,6 +16,14 @@ const Item = (props: IItem) => {
   const dispatch = useDispatch();
   const handleAddItemCart = (item: IItem) => {
     dispatch(addItemCart(item));
+    dispatch(
+      getAmountItems({
+        id: item.id,
+        amount: 1,
+        accPrice: parseFloat(item.price),
+      })
+    );
+    dispatch(getTotalBuy());
   };
 
   return (

@@ -9,6 +9,10 @@ export const MainCart = styled.div`
   left: 954px;
   box-shadow: -5px 0px 6px 0px #00000021;
 `;
+export const Container = styled.div`
+  position: relative;
+  height: 100%;
+`;
 export const HeaderCart = styled.div`
   display: flex;
   justify-content: space-between;
@@ -37,5 +41,40 @@ export const HeaderCart = styled.div`
     color: #fff;
     font-size: 28px;
     line-height: 15px;
+  }
+`;
+export const TotalCartContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  div {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+  }
+  div span {
+    color: #fff;
+    width: 80px;
+    height: 15px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 15px;
+    padding: 1px;
+  }
+  button {
+    background-color: #000000;
+    width: 486px;
+    color: #fff;
+    height: 97px;
+    border: none;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 15px;
+    padding: 1px;
+    cursor: pointer;
   }
 `;

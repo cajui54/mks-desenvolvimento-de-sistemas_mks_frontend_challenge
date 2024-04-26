@@ -1,18 +1,51 @@
-import React from "react";
+import { useEffect } from "react";
 import type { RootState } from "../../redux/store";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import * as Styles from "./ItemCart.css";
+import {
+  getAmountItems,
+  decrementItem,
+  removeItemCart,
+  getTotalBuy,
+} from "../../redux/slice/sliceCart";
 import { IItem } from "../../interface/item";
+
 const ItemCart = () => {
-  const { itemsInCart } = useSelector((state: RootState) => state.cart);
-  console.log(itemsInCart);
+  const { itemsInCart, amountItems } = useSelector(
+    (state: RootState) => state.cart
+  );
 
-  const getAmoutItem = (item: IItem): number => {
-    const amount = itemsInCart.filter((_item) => _item.id === item.id).length;
-    console.log(amount);
+  const dispatch = useDispatch();
 
-    return amount;
+  const getAmoutItem = (id: number, value = 1): number => {
+    if (amountItems.length > 0) {
+      const _item = amountItems.find((item) => item.id === id);
+
+      return _item ? _item.amount : 1;
+    }
+    return value;
   };
+  const handleClickIncrement = ({ id, price }: IItem) => {
+    dispatch(getAmountItems({ id, amount: 1, accPrice: parseFloat(price) }));
+    getAmoutItem(id);
+  };
+  const handleClickDecrement = ({ id, price }: IItem) => {
+    const item = amountItems.find((item) => item.id === id);
+    if (item && item.amount >= 2) {
+      dispatch(decrementItem({ id, amount: 1, accPrice: parseFloat(price) }));
+      getAmoutItem(id);
+    }
+  };
+  const updatePriceItem = ({ id, price }: IItem) => {
+    const _item = amountItems.find((item) => item.id === id);
+    return _item ? _item.accPrice : price;
+  };
+  const handleRemoveItem = (id: number) => {
+    dispatch(removeItemCart(id));
+  };
+  useEffect(() => {
+    dispatch(getTotalBuy());
+  }, [amountItems]);
   return (
     <Styles.ItemCartMain>
       {itemsInCart.length > 0 &&
@@ -27,20 +60,26 @@ const ItemCart = () => {
             <Styles.InputContainer>
               <p>Qtd</p>
               <div>
-                <button>-</button>
+                <button onClick={() => handleClickDecrement(item)}>-</button>
                 <input
                   type="text"
                   min={1}
                   readOnly
-                  value={getAmoutItem(item)}
+                  value={getAmoutItem(item.id)}
                 />
-                <button>+</button>
+                <button onClick={() => handleClickIncrement(item)}>+</button>
               </div>
             </Styles.InputContainer>
             <Styles.PriceContainer>
-              <span>R$:{item.price.split(".")[0]}</span>
+              <span>R$:{updatePriceItem(item)}</span>
             </Styles.PriceContainer>
-            <button className="button-close">X</button>
+
+            <button
+              className="button-close"
+              onClick={() => handleRemoveItem(item.id)}
+            >
+              X
+            </button>
           </Styles.CardItem>
         ))}
     </Styles.ItemCartMain>
