@@ -9,7 +9,7 @@ export const CardItem = styled.div`
   background-color: #fff;
   width: 379px;
   height: 95px;
-  margin-top: 2rem;
+  margin-top: 2.8rem;
   border-radius: 0.8rem;
   box-shadow: -2px 2px 10px 0px #0000000d;
   display: flex;
@@ -18,6 +18,7 @@ export const CardItem = styled.div`
   img {
     width: 46px;
     height: 57px;
+    margin-left: 22px;
   }
   h2 {
     width: 113px;

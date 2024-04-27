@@ -20,7 +20,7 @@ export const HeaderCart = styled.div`
     width: 180px;
     height: 56px;
     margin-top: 36px;
-    margin-left: 30px;
+    margin-left: 47px;
     font-weight: 700;
     font-size: 27px;
     line-height: 32.91px;
@@ -33,7 +33,7 @@ export const HeaderCart = styled.div`
     height: 38px;
     position: relative;
     top: 39px;
-    right: 80px;
+    right: 22px;
     background: #000000;
     border-radius: 50%;
   }

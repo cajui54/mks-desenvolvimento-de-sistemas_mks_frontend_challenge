@@ -6,7 +6,8 @@ export const MainItem = styled.div`
   background-color: #fff;
   box-shadow: 0px 2px 8px 0px #00000022;
   border-radius: 8px;
-  margin-right: 1.5rem;
+  margin-right: 1.6rem;
+  margin-bottom: 22.44px;
   position: relative;
   img {
     width: 111px;
@@ -17,7 +18,7 @@ export const MainItem = styled.div`
     width: 192px;
     height: 25px;
     overflow: hidden;
-    margin: 0.5rem auto;
+    margin: 12px auto;
     font-weight: 300;
     font-size: 1rem;
     line-height: 12px;
@@ -53,7 +54,7 @@ export const InfoContainer = styled.div`
   h2 {
     min-width: 124px;
     height: 38px;
-    margin: 0.5rem;
+    margin-left: 14px;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
