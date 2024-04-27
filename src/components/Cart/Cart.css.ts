@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const MainCart = styled.div`
   background-color: var(--secunday-color);
   position: absolute;
+  left: 954px;
   z-index: 2;
   width: 486px;
   height: 1024px;
-  right: 0;
   box-shadow: -5px 0px 6px 0px #00000021;
 `;
 export const Container = styled.div`
