@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainProducts = styled.div`
-  width: 100%;
+  width: 938px;
   height: 601px;
   margin-top: 217px;
   margin-left: 247px;
