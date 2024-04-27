@@ -6,7 +6,7 @@ export const MainCart = styled.div`
   z-index: 2;
   width: 486px;
   height: 1024px;
-  left: 954px;
+  right: 0;
   box-shadow: -5px 0px 6px 0px #00000021;
 `;
 export const Container = styled.div`
