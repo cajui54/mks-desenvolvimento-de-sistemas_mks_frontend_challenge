@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import Item from "../Item/Item";
 
 const Products = () => {
-  const { data, isLoading } = useFetch();
+  const { data } = useFetch();
 
   return (
     <Styles.MainProducts>
